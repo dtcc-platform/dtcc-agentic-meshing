@@ -103,6 +103,7 @@ python3 mesh_bench_harness.py \
 - **BuildFailed:** stop; write logs and artifacts produced so far.
 - **FeatureMissing:** if constraints or size control aren’t supported, mark in the notes and continue with what’s possible.
 - **MeshFailed:** record error for that case/size and continue remaining sizes.
+- **TimeOut:** If running the bench takes more than 1 hour kill the process and record error.
 
 ---
 
