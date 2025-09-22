@@ -2,7 +2,7 @@
 
 # Preamble
 
-In this context software X is DelaBella with git repo https://github.com/msokalski/delabella. Replace all incidents of <SOFTWARE_NAME> with DelaBella.
+In this context software <SOFTWARE_NAME> name is `software_name` with git repo https://github.com/<SOME_AUTHOR>/`software_name`. Replace all incidents of <SOFTWARE_NAME> with `software_name`.
 
 ## 0) Goal
 Evaluate alternative 2D triangulators (“software X”) for:
@@ -103,6 +103,7 @@ python3 mesh_bench_harness.py \
 - **BuildFailed:** stop; write logs and artifacts produced so far.
 - **FeatureMissing:** if constraints or size control aren’t supported, mark in the notes and continue with what’s possible.
 - **MeshFailed:** record error for that case/size and continue remaining sizes.
+- **TimeOut:** If running the bench takes more than 1 hour kill the process and record error.
 
 ---
 
