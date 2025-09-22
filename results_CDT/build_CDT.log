@@ -1,0 +1,47 @@
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- CDT_USE_AS_COMPILED_LIBRARY is ON
+-- CDT_USE_64_BIT_INDEX_TYPE is OFF
+-- CDT_ENABLE_CALLBACK_HANDLER is OFF
+-- CDT_ENABLE_TESTING is OFF
+-- CDT_USE_STRONG_TYPING is OFF
+-- CDT_DEVELOPER_BUILD is OFF
+-- CDT_DISABLE_EXCEPTIONS is OFF
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+-- Found Doxygen: /usr/bin/doxygen (found suitable version "1.9.1", minimum required is "1.9") found components: doxygen dot 
+-- Doxygen found: adding documentation target.
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/build
+[ 50%] Building CXX object CMakeFiles/CDT.dir/src/CDT.cpp.o
+[100%] Linking CXX static library libCDT.a
+[100%] Built target CDT
+-- Install configuration: "Release"
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/LocatorKDTree.h
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/Triangulation.hpp
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/CDTUtils.hpp
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/portable_nth_element.hpp
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/CDT.hpp
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/remove_at.hpp
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/CDT.h
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/CDTUtils.h
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/Triangulation.h
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/KDTree.h
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/predicates.h
+-- Up-to-date: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/VerifyTopology.h
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/InitializeWithGrid.h
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/lib/libCDT.a
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/include/cdt_export.h
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/cmake/CDTConfig.cmake
+-- Installing: /scratch/vasnas/scratch/dtcc-agentic-meshing-cdt/cdt_src/cdt_install/cmake/CDTConfig-release.cmake
