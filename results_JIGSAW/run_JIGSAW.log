@@ -1,0 +1,5 @@
+adapter_jigsaw initialised; quality='moderate' enables OPTM_KERN CVT+DQDX and relaxed radius-edge targets.
+adapter_jigsaw initialised; quality='moderate' enables OPTM_KERN CVT+DQDX and relaxed radius-edge targets.
+adapter_jigsaw initialised; quality='moderate' enables OPTM_KERN CVT+DQDX and relaxed radius-edge targets.
+JIGSAW enforces constraint edges; ignoring enforce_constraints=False
+Inner loop orientation preserved; clockwise polygons act as holes, counter-clockwise are treated as islands.

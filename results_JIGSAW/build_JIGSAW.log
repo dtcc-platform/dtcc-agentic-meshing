@@ -1,0 +1,41 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+>> GCXX-LIKE COMPILER DETECTED
+>> INSTALLING LOCALLY
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /scratch/vasnas/scratch/dtcc-agentic-meshing-jigsaw/jigsaw-0.9.14/build
+[ 12%] Building CXX object src/CMakeFiles/jigsaw-cmd.dir/jigsaw.cpp.o
+[ 25%] Linking CXX executable jigsaw
+lto-wrapper: warning: using serial compilation of 69 LTRANS jobs
+[ 25%] Built target jigsaw-cmd
+[ 37%] Building CXX object src/CMakeFiles/tripod-cmd.dir/jigsaw.cpp.o
+[ 50%] Linking CXX executable tripod
+lto-wrapper: warning: using serial compilation of 17 LTRANS jobs
+[ 50%] Built target tripod-cmd
+[ 62%] Building CXX object src/CMakeFiles/marche-cmd.dir/jigsaw.cpp.o
+[ 75%] Linking CXX executable marche
+lto-wrapper: warning: using serial compilation of 5 LTRANS jobs
+[ 75%] Built target marche-cmd
+[ 87%] Building CXX object src/CMakeFiles/jigsaw-lib.dir/jigsaw.cpp.o
+[100%] Linking CXX shared library libjigsaw.so
+lto-wrapper: warning: using serial compilation of 73 LTRANS jobs
+Consolidate compiler generated dependencies of target jigsaw-cmd
+[ 25%] Built target jigsaw-cmd
+Consolidate compiler generated dependencies of target tripod-cmd
+[ 50%] Built target tripod-cmd
+Consolidate compiler generated dependencies of target marche-cmd
+[ 75%] Built target marche-cmd
+Consolidate compiler generated dependencies of target jigsaw-lib
+[100%] Built target jigsaw-lib
+Built target jigsaw-lib
