@@ -1,0 +1,92 @@
+[
+  {
+    "software": "Geogram",
+    "case": "A",
+    "maxh": null,
+    "time_s": 0.0,
+    "num_triangles": 2,
+    "triangles_per_s": 0.0,
+    "notes": "sanity"
+  },
+  {
+    "software": "Geogram",
+    "case": "B",
+    "maxh": null,
+    "time_s": 0.0,
+    "num_triangles": 9,
+    "triangles_per_s": 0.0,
+    "notes": "sanity"
+  },
+  {
+    "software": "Geogram",
+    "case": "C",
+    "maxh": 100.0,
+    "time_s": 0.28154625557363033,
+    "num_triangles": 2332,
+    "triangles_per_s": 8282.83080962564,
+    "notes": ""
+  },
+  {
+    "software": "Geogram",
+    "case": "D",
+    "maxh": 100.0,
+    "time_s": 0.29194288328289986,
+    "num_triangles": 2332,
+    "triangles_per_s": 7987.863837530968,
+    "notes": ""
+  },
+  {
+    "software": "Geogram",
+    "case": "D",
+    "maxh": 50.0,
+    "time_s": 1.0789260175079107,
+    "num_triangles": 4512,
+    "triangles_per_s": 4181.93641341763,
+    "notes": ""
+  },
+  {
+    "software": "Geogram",
+    "case": "D",
+    "maxh": 20.0,
+    "time_s": 5.642805982381105,
+    "num_triangles": 16548,
+    "triangles_per_s": 2932.583550040331,
+    "notes": ""
+  },
+  {
+    "software": "Geogram",
+    "case": "D",
+    "maxh": 10.0,
+    "time_s": 21.244863137602806,
+    "num_triangles": 45693,
+    "triangles_per_s": 2150.7787413854735,
+    "notes": ""
+  },
+  {
+    "software": "Geogram",
+    "case": "D",
+    "maxh": 5.0,
+    "time_s": 84.39210001938045,
+    "num_triangles": 132771,
+    "triangles_per_s": 1573.2633738170925,
+    "notes": ""
+  },
+  {
+    "software": "Geogram",
+    "case": "D",
+    "maxh": 2.0,
+    "time_s": 624.8744919486344,
+    "num_triangles": 552710,
+    "triangles_per_s": 884.5136217297114,
+    "notes": ""
+  },
+  {
+    "software": "Geogram",
+    "case": "D",
+    "maxh": 1.0,
+    "time_s": -1.0,
+    "num_triangles": -1,
+    "triangles_per_s": 0.0,
+    "notes": "FAILED: FeatureMissing: requested maxh=1.0 below supported minimum 2.0"
+  }
+]

@@ -1,0 +1,16 @@
+[build]
+- source: geogram_1.9.6 release tarball
+- cmake flags: GEOGRAM_WITH_GRAPHICS/OFF, EXPLORAGRAM/OFF, LUA/OFF, LEGACY_NUMERICS/OFF, HLBFGS/OFF, TETGEN/OFF, TRIANGLE/OFF, TBB/OFF
+- build type: Release
+
+[adapter]
+- custom helper binary geogram_cdt (C++), links to libgeogram
+- pipeline: constrained Delaunay via GEO::CDT2d + boundary subdivision + hex-grid seeding + iterative refinement
+- outputs ascii mesh for harness; adapter converts to VTU via meshio
+
+[limitations]
+- uniform sizing below maxh=2.0 not supported (FeatureMissing reported for D_city_1)
+- interior sampling relies on point-in-polygon tests; large PSLGs incur long runtimes at fine sizes
+
+[timing]
+- D sweep repeats=3 (warmup+timed) with caching disabled; see bench_Geogram.csv for per-case measurements
