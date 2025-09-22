@@ -1,0 +1,92 @@
+[
+  {
+    "software": "JIGSAW",
+    "case": "A",
+    "maxh": null,
+    "time_s": 0.0,
+    "num_triangles": 5824,
+    "triangles_per_s": 0.0,
+    "notes": "sanity"
+  },
+  {
+    "software": "JIGSAW",
+    "case": "B",
+    "maxh": null,
+    "time_s": 0.0,
+    "num_triangles": 5833,
+    "triangles_per_s": 0.0,
+    "notes": "sanity"
+  },
+  {
+    "software": "JIGSAW",
+    "case": "C",
+    "maxh": 100.0,
+    "time_s": 0.01726388745009899,
+    "num_triangles": 86,
+    "triangles_per_s": 4981.496794889431,
+    "notes": ""
+  },
+  {
+    "software": "JIGSAW",
+    "case": "D",
+    "maxh": 100.0,
+    "time_s": 0.017086058855056763,
+    "num_triangles": 86,
+    "triangles_per_s": 5033.343308105695,
+    "notes": ""
+  },
+  {
+    "software": "JIGSAW",
+    "case": "D",
+    "maxh": 50.0,
+    "time_s": 0.027306342497467995,
+    "num_triangles": 305,
+    "triangles_per_s": 11169.566192480059,
+    "notes": ""
+  },
+  {
+    "software": "JIGSAW",
+    "case": "D",
+    "maxh": 20.0,
+    "time_s": 0.18152589537203312,
+    "num_triangles": 1669,
+    "triangles_per_s": 9194.280499646748,
+    "notes": ""
+  },
+  {
+    "software": "JIGSAW",
+    "case": "D",
+    "maxh": 10.0,
+    "time_s": 0.928955240175128,
+    "num_triangles": 6247,
+    "triangles_per_s": 6724.758879472284,
+    "notes": ""
+  },
+  {
+    "software": "JIGSAW",
+    "case": "D",
+    "maxh": 5.0,
+    "time_s": 4.706228965893388,
+    "num_triangles": 23846,
+    "triangles_per_s": 5066.901796069604,
+    "notes": ""
+  },
+  {
+    "software": "JIGSAW",
+    "case": "D",
+    "maxh": 2.0,
+    "time_s": 44.37597387097776,
+    "num_triangles": 146547,
+    "triangles_per_s": 3302.3951299881874,
+    "notes": ""
+  },
+  {
+    "software": "JIGSAW",
+    "case": "D",
+    "maxh": 1.0,
+    "time_s": 178.82155859656632,
+    "num_triangles": 582204,
+    "triangles_per_s": 3255.781934623957,
+    "notes": ""
+  }
+]
