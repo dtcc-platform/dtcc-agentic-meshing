@@ -1,0 +1,10 @@
+Collecting triangle
+  Downloading triangle-20250106-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.4 kB)
+Requirement already satisfied: numpy in ./venv_triangle/lib/python3.13/site-packages (from triangle) (2.3.3)
+Downloading triangle-20250106-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 9.4 MB/s eta 0:00:00
+Installing collected packages: triangle
+Successfully installed triangle-20250106
+
+[notice] A new release of pip is available: 24.3.1 -> 25.2
+[notice] To update, run: python3 -m pip install --upgrade pip
