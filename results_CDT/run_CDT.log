@@ -1,0 +1,2 @@
+NOTE: CDT adapter does not expose explicit quality controls; using defaults.
+FeatureMissing: Uniform element size control (`maxh`) is approximated via simple refinement and does not achieve requested sizing; meshes largely reflect default CDT output.
