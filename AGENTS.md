@@ -4,6 +4,8 @@
 
 In this context software <SOFTWARE_NAME> name is `software_name` with git repo https://github.com/<SOME_AUTHOR>/`software_name`. Replace all incidents of <SOFTWARE_NAME> with `software_name`.
 
+If <SOFTWARE_NAME> is a Python wheel available at PyPI use that and do not build from source.
+
 ## 0) Goal
 Evaluate alternative 2D triangulators (“software X”) for:
 - correctness (constraints honored),
