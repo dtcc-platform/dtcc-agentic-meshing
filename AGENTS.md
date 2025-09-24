@@ -105,6 +105,10 @@ python3 mesh_bench_harness.py \
 - **MeshFailed:** record error for that case/size and continue remaining sizes.
 - **TimeOut:** If running the bench takes more than 1 hour kill the process and record error.
 
+## 10) Metrics
+- **MeshQuality:** Implement triangle minimum angle distribution, triangle aspect ratio distribution, triangle surface, triangle count and save them into `metrics_<SOFTWARE_NAME>.log`
+
+
 ---
 
 ## Reference Harness (`mesh_bench_harness.py`)
