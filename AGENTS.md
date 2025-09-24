@@ -6,6 +6,8 @@ In this context software <SOFTWARE_NAME> name is `software_name` with git repo h
 
 If <SOFTWARE_NAME> is a Python wheel available at PyPI use that and do not build from source.
 
+Ignore any other `adapter_*` files in the repo as well as `results_*` directories.
+
 ## 0) Goal
 Evaluate alternative 2D triangulators (“software X”) for:
 - correctness (constraints honored),
