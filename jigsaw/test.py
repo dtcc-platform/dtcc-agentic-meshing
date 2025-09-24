@@ -34,7 +34,7 @@ import jigsawpy as jig
 from jigsawpy import jigsaw_def_t
 
 
-TESTCASE_FILE = Path(__file__).parent.parent/ "netgen/testcase.txt"
+TESTCASE_FILE = Path(__file__).parent / "testcase.txt"
 
 
 def _segments_from_loops(loops: List[Dict]) -> np.ndarray:
