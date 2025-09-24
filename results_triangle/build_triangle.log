@@ -1,0 +1,7 @@
+Requirement already satisfied: meshio in ./.venv_triangle/lib/python3.13/site-packages (5.3.5)
+Requirement already satisfied: numpy in ./.venv_triangle/lib/python3.13/site-packages (2.3.3)
+Requirement already satisfied: triangle in ./.venv_triangle/lib/python3.13/site-packages (20250106)
+Requirement already satisfied: rich in ./.venv_triangle/lib/python3.13/site-packages (from meshio) (14.1.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./.venv_triangle/lib/python3.13/site-packages (from rich->meshio) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./.venv_triangle/lib/python3.13/site-packages (from rich->meshio) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in ./.venv_triangle/lib/python3.13/site-packages (from markdown-it-py>=2.2.0->rich->meshio) (0.1.2)

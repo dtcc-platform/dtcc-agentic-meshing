@@ -1,0 +1,69 @@
+case: A_unit_square_default.vtu
+  triangles: 2
+  area_total: 1.000000
+  min_angle_deg: min=45.000, p05=45.000, median=45.000, mean=45.000, p95=45.000, max=45.000
+  aspect_ratio: min=1.414, p05=1.414, median=1.414, mean=1.414, p95=1.414, max=1.414
+  triangle_area: min=0.500000, p05=0.500000, median=0.500000, mean=0.500000, p95=0.500000, max=0.500000
+
+case: B_unit_square_with_inner_polygon.vtu
+  triangles: 9
+  area_total: 0.693750
+  min_angle_deg: min=14.036, p05=14.036, median=18.800, mean=20.089, p95=31.417, max=33.495
+  aspect_ratio: min=1.790, p05=1.841, median=2.332, mean=2.526, p95=3.536, max=3.536
+  triangle_area: min=0.043750, p05=0.048750, median=0.075000, mean=0.077083, p95=0.100000, max=0.100000
+
+case: C_city_100.vtu
+  triangles: 4768
+  area_total: 179674.604609
+  min_angle_deg: min=20.586, p05=29.411, median=40.287, mean=40.788, p95=55.315, max=59.894
+  aspect_ratio: min=1.003, p05=1.090, median=1.509, mean=1.531, p95=1.970, max=2.781
+  triangle_area: min=0.127087, p05=0.861059, median=13.625655, mean=37.683432, p95=142.017797, max=1147.909208
+
+case: D_city_1.vtu
+  triangles: 640816
+  area_total: 179674.604609
+  min_angle_deg: min=20.586, p05=33.976, median=46.118, mean=46.701, p95=58.823, max=60.000
+  aspect_ratio: min=1.000, p05=1.018, median=1.346, mean=1.348, p95=1.745, max=2.781
+  triangle_area: min=0.080127, p05=0.191095, median=0.272824, mean=0.280384, p95=0.395747, max=0.433010
+
+case: D_city_10.vtu
+  triangles: 8650
+  area_total: 179674.604609
+  min_angle_deg: min=20.586, p05=29.411, median=44.534, mean=44.059, p95=57.269, max=59.990
+  aspect_ratio: min=1.000, p05=1.063, median=1.392, mean=1.428, p95=1.970, max=2.781
+  triangle_area: min=0.127087, p05=1.314765, median=22.807408, mean=20.771631, p95=37.937892, max=43.296603
+
+case: D_city_100.vtu
+  triangles: 4768
+  area_total: 179674.604609
+  min_angle_deg: min=20.586, p05=29.411, median=40.287, mean=40.788, p95=55.315, max=59.894
+  aspect_ratio: min=1.003, p05=1.090, median=1.509, mean=1.531, p95=1.970, max=2.781
+  triangle_area: min=0.127087, p05=0.861059, median=13.625655, mean=37.683432, p95=142.017797, max=1147.909208
+
+case: D_city_2.vtu
+  triangles: 160711
+  area_total: 179674.604609
+  min_angle_deg: min=20.586, p05=33.878, median=46.086, mean=46.602, p95=58.823, max=59.999
+  aspect_ratio: min=1.000, p05=1.018, median=1.347, mean=1.351, p95=1.749, max=2.781
+  triangle_area: min=0.127087, p05=0.761066, median=1.086905, mean=1.117998, p95=1.584688, max=1.732042
+
+case: D_city_20.vtu
+  triangles: 5146
+  area_total: 179674.604609
+  min_angle_deg: min=20.586, p05=29.411, median=41.275, mean=41.418, p95=55.594, max=59.894
+  aspect_ratio: min=1.003, p05=1.086, median=1.480, mean=1.511, p95=1.970, max=2.781
+  triangle_area: min=0.127087, p05=0.936730, median=16.108145, mean=34.915391, p95=121.926941, max=172.251770
+
+case: D_city_5.vtu
+  triangles: 26695
+  area_total: 179674.604609
+  min_angle_deg: min=20.586, p05=32.795, median=45.745, mean=45.841, p95=58.823, max=59.995
+  aspect_ratio: min=1.000, p05=1.023, median=1.358, mean=1.373, p95=1.798, max=2.781
+  triangle_area: min=0.127087, p05=4.089277, median=6.623216, mean=6.730646, p95=9.880780, max=10.825070
+
+case: D_city_50.vtu
+  triangles: 4771
+  area_total: 179674.604609
+  min_angle_deg: min=20.586, p05=29.411, median=40.301, mean=40.793, p95=55.331, max=59.894
+  aspect_ratio: min=1.003, p05=1.090, median=1.508, mean=1.531, p95=1.970, max=2.781
+  triangle_area: min=0.127087, p05=0.861303, median=13.673450, mean=37.659737, p95=142.779251, max=976.562500
