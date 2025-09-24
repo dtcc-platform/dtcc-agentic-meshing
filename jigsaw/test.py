@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 
+"""
+Test routines for polygon meshing with JIGSAW.
+
+Usage: 
+From the dtcc-agentic-meshing repo root, run:
+python -m jigsaw.test
+"""
+
+
 from __future__ import annotations
 from typing import List, Tuple, Optional, Dict
 from pathlib import Path
@@ -458,29 +467,8 @@ def mesh_polygon_fill(
 
     all_verts: List[Tuple[float, float]] = []
     all_edges: List[Tuple[int, int]] = []
-    # for L in loops:
-    #     poly = L["poly"]
-    #     s = len(all_verts)
-    #     all_verts.extend(poly)
-    #     n = len(poly)
-    #     for k in range(n):
-    #         a = s + k
-    #         b = s + ((k + 1) % n)
-    #         all_edges.append((a, b))
     for L in loops:
         poly = L["poly"]
-
-        ccw = L.get("ccw", None)
-        # if ccw is None:
-        #     # fallback: compute signed area
-        #     sx = 0.0
-        #     for (x0, y0), (x1, y1) in zip(poly, poly[1:] + poly[:1]):
-        #         sx += (x1 - x0) * (y1 + y0)
-        #     ccw = sx < 0.0  # negative shoelace for standard (x,y) -> CCW
-        if L["depth"] % 2 == 1 and not ccw:
-            poly = list(reversed(poly))
-            L["poly"] = poly
-            L["ccw"] = True
         s = len(all_verts)
         all_verts.extend(poly)
         n = len(poly)
@@ -488,6 +476,7 @@ def mesh_polygon_fill(
             a = s + k
             b = s + ((k + 1) % n)
             all_edges.append((a, b))
+    
     geom.vert2 = np.array(
         [((float(x), float(y)), 0) for (x, y) in all_verts], dtype=geom.VERT2_t
     )
@@ -507,10 +496,10 @@ def mesh_polygon_fill(
         out = debug_seeds_path or "seeds.vtu"
         meshio.Mesh(points=seeds_xyz, cells=[]).write(out)
 
-    for L, s in zip(loops, seeds):
-        if not point_in_polygon(s, L["poly"]):
-            print("Warning: seed not in loop?", L["name"], s, file=sys.stderr)
-        print(f"  Loop '{L['name']}' depth={L['depth']} ccw={L['ccw']} seed={s}")
+    # for L, s in zip(loops, seeds):
+    #     if not point_in_polygon(s, L["poly"]):
+    #         print("Warning: seed not in loop?", L["name"], s, file=sys.stderr)
+    #     print(f"  Loop '{L['name']}' depth={L['depth']} ccw={L['ccw']} seed={s}")
 
     # Options
     opts = jig.jigsaw_jig_t()
@@ -574,6 +563,7 @@ def mesh_polygon_fill(
     return jmesh, points_xyz, triangles, tri_regions, line_cells, dt
 
 
+
 def mesh_polygon_bound(
     exterior: Loop,
     inner_loops: Optional[List[Loop]] = None,
@@ -585,21 +575,7 @@ def mesh_polygon_bound(
     edge_band: Optional[float] = None,
     debug_dump_seeds: bool = False,
     debug_seeds_path: Optional[str] = "seeds_bound.vtu",
-):
-    """
-    Mesh using explicit part-bound assignments like jigsaw_terrain_constrained.
-
-    - Build geometry with all loops as constrained edges.
-    - Assign each loop's edges to a part-id via `geom.bound`:
-        * Outer (depth=0) -> background part (id=1)
-        * Even-depth loops (>=2) -> new part ids (meshed as separate parts)
-        * Odd-depth loops (1,3,...) -> background part (id=1) — behave as
-          holes into the background (not creating unmeshed holes)
-    - Provide seeds per-part so JIGSAW meshes all parts (background + each even-depth island).
-
-    Returns the same tuple as mesh_polygon_with_interfaces/mesh_polygon_fill:
-      jmesh, points_xyz, triangles, tri_regions, line_cells, dt
-    """
+    ):
 
     # Compute nesting/depth metadata
     loops = compute_loop_metadata(exterior, inner_loops)
@@ -640,16 +616,9 @@ def mesh_polygon_bound(
 
     # Part-id assignment following terrain style
     # part 1 = background (outer loop)
-    loop_to_part: Dict[int, int] = {0: 1}
-    next_part_id = 2
-    # Assign even depths (>=2) new part ids; odd depths -> background part (1)
-    for i in range(1, len(loops)):
-        dep = loops[i]["depth"]
-        if dep % 2 == 0:
-            loop_to_part[i] = next_part_id
-            next_part_id += 1
-        else:
-            loop_to_part[i] = 2*next_part_id
+    # one loop → one part-id
+    loop_to_part: Dict[int, int] = {i: i + 1 for i in range(len(loops))}
+    # (outer loop gets id=1, first inner gets id=2, etc.)
 
     # Seeds per distinct part-id, avoiding immediate children
     seeds_by_part: Dict[int, Tuple[float, float]] = {}
@@ -659,11 +628,13 @@ def mesh_polygon_bound(
     seeds_by_part[1] = _seed_inside_excluding_children(loops[0]["poly"], outer_children)
 
     # Seeds for even-depth loops (>=2)
-    for i in range(1, len(loops)):
-        dep = loops[i]["depth"]
-        if dep % 2 == 0:
-            ch = [loops[j]["poly"] for j in children_map[i]]
-            seeds_by_part[loop_to_part[i]] = _seed_inside_excluding_children(loops[i]["poly"], ch)
+    seeds_by_part: Dict[int, Tuple[float, float]] = {}
+    for i in range(len(loops)):
+        # avoid placing the seed inside immediate children
+        ch = [loops[j]["poly"] for j in children_map[i]]
+        pid = loop_to_part[i]
+        seeds_by_part[pid] = _seed_inside_excluding_children(loops[i]["poly"], ch)
+
 
     # Write seeds into geometry with part-id in IDtag
     if seeds_by_part:
@@ -680,13 +651,14 @@ def mesh_polygon_bound(
         for eid in edge_ids:
             bound_entries.append((int(pid), int(eid), jigsaw_def_t.JIGSAW_EDGE2_TAG))
 
+
     if bound_entries:
         geom.bound = np.array(bound_entries, dtype=geom.BOUND_t)
 
     # Options (strong edge/face conformance; lock interface constraints)
     opts = jig.jigsaw_jig_t()
-    opts.verbosity = 0
-    opts.mesh_dims = +2
+    opts.verbosity = 0 
+    opts.mesh_dims = 2
     opts.hfun_scal = "absolute"
     opts.hfun_hmax = float(maxh)
     opts.mesh_kern = "delfront"
@@ -697,7 +669,8 @@ def mesh_polygon_bound(
     opts.mesh_eps2 = 0.33
     opts.mesh_lock = True
     opts.geom_feat = True
-
+    opts.numthread = -1
+    
     # Meshing
     jmesh = jig.jigsaw_msh_t()
     tic()
@@ -714,7 +687,7 @@ def mesh_polygon_bound(
 
     if not return_numpy:
         return jmesh
-
+    
     # Extract arrays
     pts2 = jmesh.vert2["coord"].astype(np.float64)
     points_xyz = np.column_stack([pts2, np.zeros((pts2.shape[0],), dtype=np.float64)])
@@ -795,46 +768,43 @@ def read_loops_from_file_and_mesh_interfaces(
     path: str = "testcase.txt", maxh: float = 5.0, fname: str = "gbg_interfaces.vtu"
 ) -> None:
     outer, loops = read_loops_from_file(path)
-    _, pts, tris, regions, lines, dt = mesh_polygon_with_interfaces(
+    jmesh, pts, tris, regions, lines, dt = mesh_polygon_with_interfaces(
         outer, inner_loops=loops, maxh=maxh, return_numpy=True
     )
-    save_vtu_with_regions_and_lines(pts, tris, regions, lines, fname)
+    jig.savevtk("jig_gbg_interfaces.vtk", jmesh)
+    # save_vtu_with_regions_and_lines(pts, tris, regions, lines, fname)
 
 def read_loops_from_file_and_mesh_fill(
     path: str = "testcase.txt", maxh: float = 5.0, fname: str = "gbg_filled.vtu"
 ) -> None:
     outer, loops = read_loops_from_file(path)
-    _, pts, tris, regions, lines, dt = mesh_polygon_fill(
+    jmesh, pts, tris, regions, lines, dt = mesh_polygon_fill(
         outer, inner_loops=loops, maxh=maxh, return_numpy=True
     )
-    save_vtu_with_regions_and_lines(pts, tris, regions, lines, fname)
+    # save_vtu_with_regions_and_lines(pts, tris, regions, lines, fname)
+    jig.savevtk("jig_gbg_filled.vtk", jmesh)
 
 def read_loops_from_file_and_mesh_bound(
     path: str = "testcase.txt", maxh: float = 5.0, fname: str = "gbg_bound.vtu"
 ) -> None:
     outer, loops = read_loops_from_file(path)
-    _, pts, tris, regions, lines, dt = mesh_polygon_bound(
+    jmesh, pts, tris, regions, lines, dt = mesh_polygon_bound(
         outer, inner_loops=loops, maxh=maxh, return_numpy=True
     )
-    save_vtu(pts, tris, lines, fname)
+    # jig.savevtk("jig_gbg_bound.vtk", jmesh)
+    print(f'Points: {len(pts)} Triangles: {len(tris)} Regions: {len(set(regions))}')
+    save_vtu_with_regions_and_lines(pts, tris, regions, lines, fname)
 
 if __name__ == "__main__":
     print("Generating test meshes...")
-
-    # if "--bench" in sys.argv:
-    #     bench()
-    #     exit()
-    # if "--bench-triangle" in sys.argv:
-    #     bench_triangle()
-    #     exit()
 
     test_square()
     test_square_with_hole_interfaces()
     test_concave()
     test_L_shape()
 
-    # read_loops_from_file_and_mesh_remove_holes(path=str(TESTCASE_FILE), maxh=10.0)
-    # read_loops_from_file_and_mesh_interfaces(path=str(TESTCASE_FILE), maxh=5.0)
+    read_loops_from_file_and_mesh_remove_holes(path=str(TESTCASE_FILE), maxh=10.0)
+    read_loops_from_file_and_mesh_interfaces(path=str(TESTCASE_FILE), maxh=5.0)
     read_loops_from_file_and_mesh_fill(path=str(TESTCASE_FILE), maxh=5.0)
     read_loops_from_file_and_mesh_bound(path=str(TESTCASE_FILE), maxh=5.0)
     print(
